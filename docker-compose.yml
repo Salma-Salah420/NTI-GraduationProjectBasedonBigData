@@ -44,6 +44,9 @@ services:
       --port 7077
       --webui-port 8080
 
+    environment:
+      - AISSTREAM_API_KEY=${AISSTREAM_API_KEY}
+
     ports:
       - "7077:7077"
       - "8080:8080"
@@ -53,6 +56,7 @@ services:
 
     volumes:
       - ./spark:/opt/spark-apps
+      - ./scripts:/opt/scripts
 
 
   spark-worker:
