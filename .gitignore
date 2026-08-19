@@ -1,0 +1,27 @@
+# Data
+data/
+
+# Airflow
+airflow/logs/
+airflow/__pycache__/
+airflow/dags/__pycache__/
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+
+# Spark
+spark/checkpoints/
+spark/logs/
+
+# Environment / secrets
+.env
+.env.*
+!.env.example
+
+# OS / editor
+.DS_Store
+.vscode/
+.idea/
