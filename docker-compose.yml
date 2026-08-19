@@ -58,7 +58,6 @@ services:
       - ./spark:/opt/spark-apps
       - ./scripts:/opt/scripts
 
-
   spark-worker:
     image: apache/spark:3.5.6
     container_name: maritime-spark-worker
@@ -143,7 +142,7 @@ services:
 
     volumes:
       - ./airflow/dags:/opt/airflow/dags
-      - ./airflow/logs:/opt/airflow/logs
+      - airflow_logs:/opt/airflow/logs
       - ./airflow/plugins:/opt/airflow/plugins
 
     command:
@@ -162,7 +161,6 @@ services:
     networks:
       - maritime-network
 
-
   airflow-webserver:
     image: apache/airflow:2.10.5
     container_name: maritime-airflow-webserver
@@ -179,7 +177,7 @@ services:
 
     volumes:
       - ./airflow/dags:/opt/airflow/dags
-      - ./airflow/logs:/opt/airflow/logs
+      - airflow_logs:/opt/airflow/logs
       - ./airflow/plugins:/opt/airflow/plugins
 
     ports:
@@ -189,7 +187,6 @@ services:
 
     networks:
       - maritime-network
-
 
   airflow-scheduler:
     image: apache/airflow:2.10.5
@@ -207,7 +204,7 @@ services:
 
     volumes:
       - ./airflow/dags:/opt/airflow/dags
-      - ./airflow/logs:/opt/airflow/logs
+      - airflow_logs:/opt/airflow/logs
       - ./airflow/plugins:/opt/airflow/plugins
 
     command: scheduler
@@ -219,6 +216,7 @@ volumes:
   namenode_data:
   datanode_data:
   postgres_data:
+  airflow_logs:
 
 networks:
   maritime-network:
